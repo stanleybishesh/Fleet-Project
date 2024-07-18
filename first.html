@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>First HTML Class</title>
+    <style>
+        .form{
+            background-color: antiquewhite;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 0px;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>Bishesh Ganesh Shrestha</h1>
+    <p>Hello stranger. Who are you? How are you? I know nothing about you.</p>
+    <p>
+      Therefore, I'd like you to fill up the form below so that I can get in
+      touch with you.
+    </p>
+    <br />
+    <div class="form">
+      <form id="myForm" action="">
+        <caption>
+          <b>Form Details</b>
+        </caption>
+        <div>
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="e.g. Bishesh Shrestha"
+          />
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="e.g. bishesh@gmail.com"
+          />
+        </div>
+        <div>
+          <label for="gender">Gender:</label>
+          <input type="radio" name="gender" value="male" />Male
+          <input type="radio" name="gender" value="female" />Female
+        </div>
+        <div>
+          <label for="hobbies">Hobbies:</label>
+          <input type="checkbox" name="hobbies" value="sports" />Sports
+          <input type="checkbox" name="hobbies" value="music" />Music
+          <input type="checkbox" name="hobbies" value="study" />Study
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <br /><br />
+    <caption>
+      <b>Display Details</b>
+    </caption>
+    <table border="1">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Hobbies</th>
+      </tr>
+      <tr>
+        <td id="displayName"></td>
+        <td id="displayEmail"></td>
+        <td id="displayGender"></td>
+        <td id="displayHobbies"></td>
+      </tr>
+    </table>
+    <script>
+      document
+        .getElementById("myForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the form from submitting the traditional way
+
+          let name = document.getElementById("name").value;
+          let email = document.getElementById("email").value;
+          let gender = document.querySelector(
+            'input[name="gender"]:checked'
+          ).value;
+          let hobbies = [];
+          document
+            .querySelectorAll('input[name="hobbies"]:checked')
+            .forEach((checkbox) => {
+              hobbies.push(checkbox.value);
+            });
+          document.getElementById("displayName").innerText = name;
+          document.getElementById("displayEmail").innerText = email;
+          document.getElementById("displayGender").innerText = gender;
+          document.getElementById("displayHobbies").innerText =
+            hobbies.join(", ");
+          //   document.getElementById("myForm").reset();
+        });
+    </script>
+  </body>
+</html>

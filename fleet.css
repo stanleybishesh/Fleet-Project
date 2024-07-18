@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*Nav Bar*/
+nav {
+  line-height: 60px;
+  display: flex;
+  background-color: rgba(172, 109, 0, 0.386);
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+nav span {
+  color: rgb(205, 82, 0);
+}
+nav a {
+  display: flex;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 50px;
+}
+nav ul li a:hover {
+  color: rgb(205, 82, 0);
+  /* text-decoration: underline; */
+}
+
+/*Hero Section Home Page*/
+.hero-section {
+  background: url("img/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 510px;
+}
+.hero-section h1 {
+  color: rgb(255, 184, 61);
+  font-size: 5em;
+  text-align: center;
+  padding: 30px 0px;
+}
+.hero-section p {
+  color: rgb(248, 255, 156);
+  text-align: center;
+  padding: 30px 80px;
+}
+
+/*About Section*/
+.about-section h1 {
+  color: rgb(129, 87, 15);
+  font-size: 3em;
+  text-align: center;
+  padding: 30px 0px;
+}
+.about-content {
+  display: flex;
+  justify-content: space-evenly;
+}
+.about-content .services,
+.courses,
+.departments {
+  background-color: rgba(212, 179, 122, 0.386);
+  padding: 20px 50px;
+  border-radius: 20px;
+}
+.services h2,
+.courses h2,
+.departments h2 {
+  color: rgba(226, 143, 0, 0.87);
+  font-size: 1.8em;
+  padding: 10px 0px;
+}
+.services ul li,
+.courses ul li,
+.departments ul li {
+  padding: 5px 0px;
+}
+.team {
+  background-color: rgba(244, 201, 126, 0.5);
+  margin: 50px 0px;
+}
+.team-content {
+  display: flex;
+}
+.team h2 {
+  color: rgb(129, 87, 15);
+  font-size: 3em;
+  text-align: center;
+  padding: 30px 0px;
+}
+.team-content .person {
+  background-color: rgba(0, 0, 0, 0.073);
+  padding: 0px 20px;
+  margin: 0px 20px;
+}
+.team-content .person img {
+  margin-left: 20%;
+}
+.team-content .person h3 {
+  text-align: center;
+}
+.team-content .person p {
+  text-align: center;
+  margin: 10px 0px;
+  font-family: "Dancing Script", cursive;
+}
+
+/*Contact Section*/
+.contact {
+  text-align: center;
+}
+.contact h2 {
+  color: rgb(129, 87, 15);
+  font-size: 3em;
+}
+.contact p {
+  margin: 20px 0px;
+  text-decoration: underline;
+}
+.contact form input,
+textarea {
+  width: 40%;
+  padding: 10px 15px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  border: 2px solid rgba(117, 76, 0, 0.806);
+}
+.contact button {
+  margin: 20px 0px;
+  width: 40%;
+  padding: 8px 15px;
+  background-color: rgba(253, 216, 151, 0.368);
+  border: 1px solid rgb(153, 99, 0);
+}
+.contact button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 213, 139, 0.562);
+}
+
+/*Footer*/
+footer {
+  margin: 20px 0px 0px;
+  line-height: 40px;
+  display: flex;
+  background-color: rgba(172, 109, 0, 0.386);
+  padding: 10px 20px;
+  justify-content: space-between;
+}
+footer .footer-links {
+  display: flex;
+  gap: 80px;
+}
+footer .footer-links a {
+  color: rgb(70, 45, 0);
+  font-size: 1.2em;
+  text-decoration: underline;
+}
+footer .footer-links a:hover {
+  color: red;
+}
