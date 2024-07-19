@@ -5,8 +5,9 @@ function validateName() {
     document.getElementById("name").placeholder = "Please Enter Your Name !";
     return false;
   } else if (name.trim().indexOf(" ") === -1) {
+    document.getElementById("error-name").style.color = "red";
     document.getElementById("name").style.border = "2px solid red";
-    document.getElementById("name").placeholder =
+    document.getElementById("error-name").innerHTML =
       "You Must Enter Your Full Name e.g. Bishesh Shrestha !";
     return false;
   } else {
@@ -72,7 +73,6 @@ function formHandler(event) {
   if (hasError) {
     return false;
   } else {
-    alert("Form Submitted");
     location.reload();
   }
 
