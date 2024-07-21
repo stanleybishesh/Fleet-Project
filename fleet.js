@@ -12,6 +12,7 @@ function validateName() {
     return false;
   } else {
     document.getElementById("name").style.border = "";
+    document.getElementById("error-name").innerHTML = "";
     return true;
   }
 }

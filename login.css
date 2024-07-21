@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*Nav Bar*/
+nav {
+  line-height: 60px;
+  display: flex;
+  background-color: rgba(172, 109, 0, 0.386);
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+nav span {
+  color: rgb(205, 82, 0);
+}
+nav a {
+  display: flex;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.nav-right {
+  display: flex;
+  gap: 60px;
+}
+.nav-btn button {
+  border-radius: 2px;
+  border: 1px solid rgb(255, 166, 0);
+  background-color: rgba(255, 204, 109, 0.856);
+}
+.nav-btn button a:hover {
+  cursor: pointer;
+  background-color: rgb(205, 82, 0);
+  color: white;
+}
+.nav-btn button a {
+  padding: 10px 15px;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 50px;
+}
+nav ul li a:hover {
+  color: rgb(205, 82, 0);
+  /* text-decoration: underline; */
+}
+
+/*Form Section*/
+.form-section {
+  background: url("img/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 510px;
+}
+.form {
+  width: 30%;
+  background-color: rgba(255, 239, 187, 0.553);
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  padding: 20px 30px;
+  border-radius: 5px;
+}
+.form h1 {
+  text-align: center;
+  color: rgb(131, 52, 0);
+}
+.form form {
+  color: rgb(62, 40, 0);
+  margin: 15px 0px;
+}
+.form .form-content {
+  padding: 5px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.form .form-content input {
+  width: 100%;
+  padding: 8px 10px;
+}
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+}
+.remember {
+  display: flex;
+  gap: 3px;
+}
+.remember input:hover {
+  cursor: pointer;
+}
+.remember-forgot a {
+  line-height: 22px;
+  color: rgb(99, 49, 7);
+}
+.remember-forgot a:hover {
+  color: red;
+}
+.form button {
+  margin: 10px 0px;
+  padding: 7px 0px;
+  width: 100%;
+  font-size: 0.8em;
+  background-color: rgba(255, 204, 109, 0.856);
+  border: 1px solid rgb(255, 166, 0);
+}
+.form button:hover {
+  cursor: pointer;
+  background-color: rgba(205, 82, 0, 0.824);
+  color: white;
+}
+.form p {
+  margin: 5px 0px;
+  text-align: center;
+  font-size: 0.9em;
+}
+.form p a {
+  font-weight: bold;
+  color: black;
+}
+.form p a:hover {
+  color: rgb(205, 82, 0);
+}

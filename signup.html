@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="login.css" />
-    <script src="login.js"></script>
+    <link rel="stylesheet" href="signup.css" />
   </head>
   <body>
     <header>
@@ -34,27 +33,26 @@
     </header>
     <section class="form-section">
       <div class="form">
-        <h1>Login</h1>
+        <h1>Register</h1>
         <form action="" method="get">
           <div class="form-content">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" />
+          </div>
+          <div class="form-content">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" placeholder="e.g. 3vCQ1@example.com"/>
-            <div id="errorEmail"></div>
+            <input type="text" name="email" id="email" />
           </div>
           <div class="form-content">
             <label for="password">Password</label>
-            <input type="password" name="password" id="password" placeholder="Enter Password"/>
-            <div id="errorPassword"></div>
+            <input type="password" name="password" id="password" />
           </div>
-          <div class="remember-forgot">
-            <div class="remember">
-              <input type="checkbox" name="remember" id="remember" />
-              <p>Remember me</p>
-            </div>
-            <a href="">Forgot password?</a>
+          <div class="form-content">
+            <label for="cpassword">Confirm Password</label>
+            <input type="password" name="cpassword" id="cpassword" />
           </div>
-          <button type="submit" onclick="validateLogin(event)">Login</button>
-          <p>Don't have an account? <a href="signup.html">Register</a></p>
+          <button type="submit">Register</button>
+          <p>Already have account? <a href="signup.html">Login</a></p>
         </form>
       </div>
     </section>

@@ -19,6 +19,23 @@ nav a {
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+.nav-right {
+  display: flex;
+  gap: 60px;
+}
+.nav-btn button {
+  border-radius: 2px;
+  border: 1px solid rgb(255, 166, 0);
+  background-color: rgba(255, 204, 109, 0.856);
+}
+.nav-btn button a:hover {
+  cursor: pointer;
+  background-color: rgb(205, 82, 0);
+  color: white;
+}
+.nav-btn button a {
+  padding: 10px 15px;
+}
 nav ul {
   list-style-type: none;
   display: flex;
