@@ -7,9 +7,9 @@ function validateEmail() {
       "Please Enter Your Email Address !";
     document.getElementById("email").style.border = "2px solid red";
     return false;
-  } else if (email=="22") {
-    errorEmail.textContent = "Email is invalid!";
-    return false;
+    // } else if (email=="22") {
+    //   errorEmail.textContent = "Email is invalid!";
+    //   return false;
   } else {
     document.getElementById("email").style.border = "";
     errorEmail.textContent = "";
@@ -42,7 +42,7 @@ function validateLogin(event) {
   if (hasError) {
     return false;
   } else {
-    // alert("Login Successful!");
-    location.href = "fleet.html";
+    alert("Login Successful!");
+    location.href = "../fleet.html";
   }
 }

@@ -48,10 +48,10 @@ nav ul li a:hover {
 
 /*Form Section*/
 .form-section {
-  background: url("img/hero.jpg");
+  background: url("../img/hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 510px;
+  height: 560px;
 }
 .form {
   width: 30%;
