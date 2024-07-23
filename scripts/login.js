@@ -41,8 +41,38 @@ function validateLogin(event) {
   }
   if (hasError) {
     return false;
-  } else {
-    alert("Login Successful!");
-    location.href = "../fleet.html";
   }
+  //  else {
+  // alert("Login Successful!");
+  // location.href = "../fleet.html";
+  // }
+
+  // const loginUser = {
+  //   email: document.getElementById("email").value,
+  //   password: document.getElementById("password").value,
+  // };
+
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    // body: JSON.stringify(loginUser),
+  };
+  let authorizedUser;
+  fetch("https://jsonplaceholder.typicode.com/users", options)
+    .then((response) => response.json())
+    .then((data) => {
+      data.forEach((user) => {
+        if (user.email === document.getElementById("email").value) {
+          authorizedUser = user;
+        }
+      });
+      if (authorizedUser) {
+        alert("Login Successful");
+        location.href = "../fleet.html";
+      } else {
+        alert("Unauthorized User !!");
+      }
+    });
 }

@@ -48,7 +48,7 @@ nav ul li a:hover {
 
 /*Hero Section Home Page*/
 .hero-section {
-  background: url("img/hero.jpg");
+  background: url("../img/hero.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 560px;

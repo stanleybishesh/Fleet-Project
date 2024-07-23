@@ -12,20 +12,20 @@ function validateName() {
 
 function validateEmail() {
   const email = document.getElementById("email").value;
-  // const emailRegex = "/^[w-.]+@([w-]+.)+[w-]{2,4}$/";
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const errorEmail = document.getElementById("errorEmail");
   if (!email) {
     document.getElementById("email").placeholder =
       "Please Enter Your Email Address !";
     document.getElementById("email").style.border = "2px solid red";
     return false;
-    // } else if (!emailRegex.test(email)) {
-    //   errorEmail.textContent = "Enter valid email format";
-    //   errorEmail.style.color = "red";
-    //   return false;
+  } else if (!emailRegex.test(email)) {
+    errorEmail.textContent = "Enter valid email format";
+    errorEmail.style.color = "red";
+    return false;
   } else {
     document.getElementById("email").style.border = "";
-    // errorEmail.textContent = "";
+    errorEmail.textContent = "";
     return true;
   }
 }
@@ -81,7 +81,39 @@ function validateSignUp(event) {
   if (hasError) {
     return false;
   } else {
-    alert("Registration successful !");
-    location.href = "../html/login.html";
+    alert("Registration successful");
   }
+
+  const regUser = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value,
+    cpassword: document.getElementById("cpassword").value,
+  };
+
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(regUser),
+  };
+
+  fetch("https://jsonplaceholder.typicode.com/users", options)
+    .then((response) => response.json())
+    .then((data) => {
+      alert(JSON.stringify(data));
+      localStorage.setItem("email", document.getElementById("email").value);
+      localStorage.setItem(
+        "password",
+        document.getElementById("password").value
+      );
+      alert(
+        "Local Storage: " +
+          localStorage.getItem("email") +
+          " " +
+          localStorage.getItem("password")
+      );
+      location.href = "../html/login.html";
+    });
 }
