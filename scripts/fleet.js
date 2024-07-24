@@ -6,7 +6,11 @@ window.onload = () => {
 };
 
 function logout() {
-  localStorage.removeItem("email");
+  const confirm = window.confirm("Are you sure you want to logout?");
+  if (confirm) {
+    localStorage.removeItem("email");
+    location.href = "html/login.html";
+  }
 }
 
 function validateName() {
