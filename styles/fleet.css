@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+.active {
+  color: rgb(205, 82, 0);
+}
+.hidden {
+  display: none;
+}
 /*Nav Bar*/
 nav {
   line-height: 60px;
@@ -34,6 +40,19 @@ nav a {
   color: white;
 }
 .nav-btn button a {
+  padding: 10px 15px;
+}
+.logout button {
+  border-radius: 2px;
+  border: 1px solid rgb(255, 166, 0);
+  background-color: rgba(255, 204, 109, 0.856);
+}
+.logout button a:hover {
+  cursor: pointer;
+  background-color: rgb(205, 82, 0);
+  color: white;
+}
+.logout button a {
   padding: 10px 15px;
 }
 nav ul {

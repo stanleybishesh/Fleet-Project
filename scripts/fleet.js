@@ -1,3 +1,14 @@
+window.onload = () => {
+  if (localStorage.getItem("email")) {
+    document.querySelector(".nav-btn").style.display = "none";
+    document.querySelector(".logout").style.display = "block";
+  }
+};
+
+function logout() {
+  localStorage.removeItem("email");
+}
+
 function validateName() {
   const name = document.getElementById("name").value;
   if (!name) {
