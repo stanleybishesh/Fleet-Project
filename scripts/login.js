@@ -1,3 +1,8 @@
+import { request } from "./request.js";
+
+const loginBtn = document.querySelector("#login__btn");
+loginBtn.addEventListener("click", validateLogin);
+
 function validateEmail() {
   const email = document.getElementById("email").value;
   const emailRegex = "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/";
@@ -30,6 +35,7 @@ function validatePassword() {
     return true;
   }
 }
+
 function validateLogin(event) {
   event.preventDefault();
   let hasError = false;
@@ -42,38 +48,20 @@ function validateLogin(event) {
   if (hasError) {
     return false;
   }
-  //  else {
-  // alert("Login Successful!");
-  // location.href = "../fleet.html";
-  // }
 
-  // const loginUser = {
-  //   email: document.getElementById("email").value,
-  //   password: document.getElementById("password").value,
-  // };
-
-  const options = {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    // body: JSON.stringify(loginUser),
-  };
   let authorizedUser;
-  fetch("https://jsonplaceholder.typicode.com/users", options)
-    .then((response) => response.json())
-    .then((data) => {
-      data.forEach((user) => {
-        if (user.email === document.getElementById("email").value) {
-          authorizedUser = user;
-        }
-      });
-      if (authorizedUser) {
-        alert("Login Successful");
-        localStorage.setItem("email", authorizedUser.email);
-        location.href = "../fleet.html";
-      } else {
-        alert("Unauthorized User !!");
+  request("https://jsonplaceholder.typicode.com/users", "GET").then((data) => {
+    data.forEach((user) => {
+      if (user.email === document.getElementById("email").value) {
+        authorizedUser = user;
       }
     });
+    if (authorizedUser) {
+      alert("Login Successful");
+      localStorage.setItem("email", authorizedUser.email);
+      location.href = "../fleet.html";
+    } else {
+      alert("Unauthorized User !!");
+    }
+  });
 }

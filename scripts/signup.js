@@ -1,69 +1,79 @@
+import { request } from "./request.js";
+
+const signupBtn = document.querySelector("#register_btn");
+signupBtn.addEventListener("click", validateSignUp);
+
 function validateName() {
-  const name = document.getElementById("name").value;
-  if (!name) {
-    document.getElementById("name").style.border = "2px solid red";
-    document.getElementById("name").placeholder = "Please Enter Your Name !";
+  const name = document.getElementById("name");
+  const nameValue = document.getElementById("name").value;
+  if (!nameValue) {
+    name.style.border = "2px solid red";
+    name.placeholder = "Please Enter Your Name !";
     return false;
   } else {
-    document.getElementById("name").style.border = "";
+    name.style.border = "";
     return true;
   }
 }
 
 function validateEmail() {
-  const email = document.getElementById("email").value;
+  const email = document.getElementById("email");
+  const emailValue = document.getElementById("email").value;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const errorEmail = document.getElementById("errorEmail");
-  if (!email) {
-    document.getElementById("email").placeholder =
-      "Please Enter Your Email Address !";
-    document.getElementById("email").style.border = "2px solid red";
+  if (!emailValue) {
+    email.placeholder = "Please Enter Your Email Address !";
+    email.style.border = "2px solid red";
     return false;
-  } else if (!emailRegex.test(email)) {
+  } else if (!emailRegex.test(emailValue)) {
     errorEmail.textContent = "Enter valid email format";
     errorEmail.style.color = "red";
     return false;
   } else {
-    document.getElementById("email").style.border = "";
+    email.style.border = "";
     errorEmail.textContent = "";
     return true;
   }
 }
 
 function validatePassword() {
-  const password = document.getElementById("password").value;
-  if (!password) {
-    document.getElementById("password").style.border = "2px solid red";
-    document.getElementById("password").placeholder =
-      "Please Enter Your Password !";
+  const password = document.getElementById("password");
+  const passwordValue = document.getElementById("password").value;
+  if (!passwordValue) {
+    password.style.border = "2px solid red";
+    password.placeholder = "Please Enter Your Password !";
     return false;
   } else {
-    document.getElementById("password").style.border = "";
+    password.style.border = "";
     return true;
   }
 }
 
 function validateCpassword() {
-  const password = document.getElementById("password").value;
-  const cpassword = document.getElementById("cpassword").value;
+  const passwordValue = document.getElementById("password").value;
+  const cpassword = document.getElementById("cpassword");
+  const cpasswordValue = document.getElementById("cpassword").value;
   const errorCpassword = document.getElementById("errorCpassword");
-  if (!cpassword) {
-    document.getElementById("cpassword").style.border = "2px solid red";
-    document.getElementById("cpassword").placeholder =
-      "Please Confirm Your Password !";
+  if (!cpasswordValue) {
+    cpassword.style.border = "2px solid red";
+    cpassword.placeholder = "Please Confirm Your Password !";
     return false;
-  } else if (password !== cpassword) {
+  } else if (passwordValue !== cpasswordValue) {
     errorCpassword.textContent = "Passwords do not match !";
     errorCpassword.style.color = "red";
     return false;
   } else {
-    document.getElementById("cpassword").style.border = "";
+    cpassword.style.border = "";
     errorCpassword.textContent = "";
     return true;
   }
 }
 
 function validateSignUp(event) {
+  const nameValue = document.getElementById("name").value;
+  const emailValue = document.getElementById("email").value;
+  const passwordValue = document.getElementById("password").value;
+  const cpasswordValue = document.getElementById("cpassword").value;
   event.preventDefault();
   let hasError = false;
   if (!validateName()) {
@@ -85,35 +95,26 @@ function validateSignUp(event) {
   }
 
   const regUser = {
-    name: document.getElementById("name").value,
-    email: document.getElementById("email").value,
-    password: document.getElementById("password").value,
-    cpassword: document.getElementById("cpassword").value,
+    name: nameValue,
+    email: emailValue,
+    password: passwordValue,
+    cpassword: cpasswordValue,
   };
 
-  const options = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(regUser),
-  };
-
-  fetch("https://jsonplaceholder.typicode.com/users", options)
-    .then((response) => response.json())
-    .then((data) => {
-      alert(JSON.stringify(data));
-      localStorage.setItem("email", document.getElementById("email").value);
-      localStorage.setItem(
-        "password",
-        document.getElementById("password").value
-      );
-      alert(
-        "Local Storage: " +
-          localStorage.getItem("email") +
-          " " +
-          localStorage.getItem("password")
-      );
-      location.href = "../html/login.html";
-    });
+  request(
+    "https://jsonplaceholder.typicode.com/users",
+    "POST",
+    JSON.stringify(regUser)
+  ).then((data) => {
+    alert(JSON.stringify(data));
+    localStorage.setItem("email", emailValue);
+    localStorage.setItem("password", passwordValue);
+    alert(
+      "Local Storage: " +
+        localStorage.getItem("email") +
+        " " +
+        localStorage.getItem("password")
+    );
+    location.href = "../html/login.html";
+  });
 }

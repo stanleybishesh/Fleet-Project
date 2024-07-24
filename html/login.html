@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="../styles/login.css" />
-    <script src="../scripts/login.js"></script>
   </head>
   <body>
     <header>
@@ -64,12 +63,13 @@
             </div>
             <a href="">Forgot password?</a>
           </div>
-          <button type="submit" onclick="validateLogin(event)">Login</button>
+          <button id="login__btn">Login</button>
           <p>
             Don't have an account? <a href="../html/signup.html">Register</a>
           </p>
         </form>
       </div>
     </section>
+    <script type="module" src="../scripts/login.js"></script>
   </body>
 </html>
