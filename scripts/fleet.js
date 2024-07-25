@@ -1,6 +1,9 @@
 import { request } from "./request.js";
 
 const submitBtn = document.querySelector("#submit_btn");
+const logout_btn = document.querySelector("#logout_btn");
+const POST_URL = "https://jsonplaceholder.typicode.com/comments";
+logout_btn.addEventListener("click", logout);
 submitBtn.addEventListener("click", formHandler);
 
 window.onload = () => {
@@ -110,11 +113,7 @@ function formHandler(event) {
     address: addressValue,
     message: messageValue,
   };
-  request(
-    "https://jsonplaceholder.typicode.com/comments",
-    "POST",
-    JSON.stringify(obj)
-  ).then((data) => {
+  request(POST_URL, "POST", JSON.stringify(obj)).then((data) => {
     alert(JSON.stringify(data));
     location.reload();
   });

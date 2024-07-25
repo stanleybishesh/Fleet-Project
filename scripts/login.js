@@ -1,6 +1,7 @@
 import { request } from "./request.js";
 
 const loginBtn = document.querySelector("#login__btn");
+const GET_URL = "https://jsonplaceholder.typicode.com/users";
 loginBtn.addEventListener("click", validateLogin);
 
 function validateEmail() {
@@ -51,7 +52,7 @@ function validateLogin(event) {
   }
 
   let authorizedUser;
-  request("https://jsonplaceholder.typicode.com/users", "GET").then((data) => {
+  request(GET_URL, "GET").then((data) => {
     data.forEach((user) => {
       if (user.email === emailValue) {
         authorizedUser = user;
