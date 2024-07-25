@@ -52,18 +52,22 @@ function validateLogin(event) {
   }
 
   let authorizedUser;
-  request(GET_URL, "GET").then((data) => {
-    data.forEach((user) => {
-      if (user.email === emailValue) {
-        authorizedUser = user;
+  try {
+    request(GET_URL, "GET").then((data) => {
+      data.forEach((user) => {
+        if (user.email === emailValue) {
+          authorizedUser = user;
+        }
+      });
+      if (authorizedUser) {
+        alert("Login Successful");
+        localStorage.setItem("email", authorizedUser.email);
+        location.href = "../fleet.html";
+      } else {
+        alert("Unauthorized User !!");
       }
     });
-    if (authorizedUser) {
-      alert("Login Successful");
-      localStorage.setItem("email", authorizedUser.email);
-      location.href = "../fleet.html";
-    } else {
-      alert("Unauthorized User !!");
-    }
-  });
+  } catch (err) {
+    console.log(err);
+  }
 }

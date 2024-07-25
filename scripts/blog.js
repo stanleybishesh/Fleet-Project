@@ -1,3 +1,5 @@
+const GET_URL = "https://jsonplaceholder.typicode.com/photos";
+
 window.onload = () => {
   if (localStorage.getItem("email")) {
     document.querySelector(".nav-btn").style.display = "none";
@@ -15,3 +17,24 @@ function logout() {
     location.href = "login.html";
   }
 }
+
+fetch(GET_URL, {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
+  .then((response) => response.json())
+  .then((data) => {
+    const markup = data.map((img) => {
+      return `
+        <a class="blog" href="${GET_URL}/${img.id}"> 
+          <img class="round" src="${img.url}">
+          <h2>${img.title}</h2>
+        </a>
+      `;
+    });
+    console.log(markup);
+    document.querySelector(".blogs").innerHTML = markup.join(" ");
+  })
+  .catch((error) => console.log(error));

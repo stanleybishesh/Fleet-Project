@@ -67,24 +67,30 @@ nav ul li a:hover {
 
 /*Blog Section*/
 .blog-section {
-  background: url("../img/hero.jpg");
+  background-color: rgba(255, 196, 0, 0.122);
   background-repeat: no-repeat;
   background-size: cover;
-  height: 560px;
+  /* height: 560px; */
 }
 .blogs {
   display: flex;
+  flex-wrap: wrap;
   padding: 60px 100px;
   gap: 20px;
 }
 .blog {
+  text-decoration: none;
+  color: black;
+  margin: 10px 15px;
+  box-shadow: 1px 1px 10px rgb(114, 78, 0);
+  width: 20%;
   display: flex;
   flex-direction: column;
   background-color: rgba(255, 255, 255, 0.671);
 }
 .blog:hover {
   cursor: pointer;
-  box-shadow: 2px 2px 20px rgba(255, 185, 35, 0.445);
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.629);
 }
 .blog img {
   width: 100%;
