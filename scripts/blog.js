@@ -35,6 +35,6 @@ fetch(GET_URL, {
       `;
     });
     console.log(markup);
-    document.querySelector(".blogs").innerHTML = markup.join(" ");
+    document.querySelector(".blogs").innerHTML += markup.join(" ");
   })
   .catch((error) => console.log(error));
