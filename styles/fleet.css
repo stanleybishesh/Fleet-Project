@@ -113,8 +113,8 @@ nav ul li a:hover {
   justify-content: space-evenly;
 }
 .about-content .services,
-.courses,
-.departments {
+.about-content .courses,
+.about-content .departments {
   background-color: rgba(212, 179, 122, 0.386);
   padding: 20px 50px;
   margin: 15px 15px;
@@ -257,7 +257,7 @@ footer .footer-links a:hover {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 565px) {
   .nav-left a img {
     width: 80px;
   }
