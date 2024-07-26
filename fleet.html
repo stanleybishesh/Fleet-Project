@@ -9,19 +9,30 @@
       href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
   </head>
   <body>
     <header>
       <nav>
-        <a href="#home">
-          <img
-            src="img/fleetpanda.png"
-            alt="logo"
-            width="60"
-            line-height="40"
-          />
-          <h1><span>Fleet</span>Panda</h1></a
-        >
+        <input type="checkbox" id="check" />
+        <div class="nav-left">
+          <a href="#home">
+            <img
+              src="img/fleetpanda.png"
+              alt="logo"
+              width="60"
+              line-height="40"
+            />
+            <h1><span>Fleet</span>Panda</h1></a
+          >
+
+          <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+          </label>
+        </div>
         <div class="nav-right">
           <ul>
             <li><a class="active" href="#home">Home</a></li>
@@ -100,7 +111,7 @@
         <h2>Our Team Members</h2>
         <div class="team-content">
           <div class="person">
-            <img src="img/person1.jpg" alt="" style="width: 200px" />
+            <img src="img/person1.jpg" alt="" />
             <h3>Julia Cesario</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -110,7 +121,7 @@
             </p>
           </div>
           <div class="person">
-            <img src="img/person2.jpg" alt="" style="width: 200px" />
+            <img src="img/person2.jpg" alt="" />
             <h3>Jack Sparrow</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -120,7 +131,7 @@
             </p>
           </div>
           <div class="person">
-            <img src="img/person3.jpg" alt="" style="width: 200px" />
+            <img src="img/person3.jpg" alt="" />
             <h3>Andrika Panchal</h3>
             <p>
               Lorem ipsum dolor, sit amet consectetur adipisicing elit.

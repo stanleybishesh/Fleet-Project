@@ -96,8 +96,12 @@ nav ul li a:hover {
   width: 100%;
   height: 100%;
 }
-.blog h2 {
+.blog h2,
+h3 {
   padding: 10px;
+}
+.blog h3 {
+  background-color: rgba(255, 196, 94, 0.294);
 }
 .blog p {
   padding: 10px;

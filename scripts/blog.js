@@ -29,6 +29,7 @@ fetch(GET_URL, {
     const markup = data.map((img) => {
       return `
         <a class="blog" href="${GET_URL}/${img.id}"> 
+          <h3>Album Id: ${img.albumId}<br/>Id: ${img.id}</h3>
           <img class="round" src="${img.url}">
           <h2>${img.title}</h2>
         </a>

@@ -8,8 +8,8 @@ export function request(URL, method, body) {
   }
 }
 
-function handleGetRequest(URL, method) {
-  return fetch(URL, {
+async function handleGetRequest(URL, method) {
+  return await fetch(URL, {
     method,
     headers: {
       "Content-Type": "application/json",
@@ -17,8 +17,8 @@ function handleGetRequest(URL, method) {
   }).then((response) => response.json());
 }
 
-function handlePostRequest(URL, method, body) {
-  return fetch(URL, {
+async function handlePostRequest(URL, method, body) {
+  return await fetch(URL, {
     method,
     headers: {
       "Content-Type": "application/json",
