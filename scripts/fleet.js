@@ -10,8 +10,17 @@ window.onload = () => {
   if (localStorage.getItem("email")) {
     document.querySelector(".nav-btn").style.display = "none";
     document.querySelector(".logout").style.display = "block";
+  } else {
+    document.querySelector("#blog").style.display = "none";
   }
 };
+
+function login() {
+  if (!localStorage.getItem("email")) {
+    alert("You have to login first !!");
+    location.href = "html/login.html";
+  }
+}
 
 function logout() {
   const confirm = window.confirm("Are you sure you want to logout?");
@@ -45,11 +54,18 @@ function validateName() {
 function validateEmail() {
   const email = document.getElementById("email");
   const emailValue = document.getElementById("email").value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const errorEmail = document.getElementById("errorEmail");
   if (!emailValue) {
     email.style.border = "2px solid red";
     email.placeholder = "Please Enter Your Email Address !";
     return false;
+  } else if (!emailRegex.test(emailValue)) {
+    errorEmail.textContent = "Enter valid email format";
+    errorEmail.style.color = "red";
+    return false;
   } else {
+    errorEmail.textContent = "";
     email.style.border = "";
     return true;
   }
@@ -82,39 +98,44 @@ function validateMessage() {
 }
 
 function formHandler(event) {
-  const nameValue = document.getElementById("name").value;
-  const emailValue = document.getElementById("email").value;
-  const addressValue = document.getElementById("address").value;
-  const messageValue = document.getElementById("message").value;
-
   event.preventDefault();
-  let hasError = false;
-  if (!validateName()) {
-    hasError = true;
-  }
-  if (!validateEmail()) {
-    hasError = true;
-  }
-  if (!validateAddress()) {
-    hasError = true;
-  }
-  if (!validateMessage()) {
-    hasError = true;
-  }
-  if (hasError) {
-    return false;
+  if (!localStorage.getItem("email")) {
+    alert("You have to login first !!");
+    location.href = "html/login.html";
   } else {
-    alert("Form submitted !!");
-  }
+    const nameValue = document.getElementById("name").value;
+    const emailValue = document.getElementById("email").value;
+    const addressValue = document.getElementById("address").value;
+    const messageValue = document.getElementById("message").value;
 
-  let obj = {
-    name: nameValue,
-    email: emailValue,
-    address: addressValue,
-    message: messageValue,
-  };
-  request(POST_URL, "POST", JSON.stringify(obj)).then((data) => {
-    alert(JSON.stringify(data));
-    location.reload();
-  });
+    let hasError = false;
+    if (!validateName()) {
+      hasError = true;
+    }
+    if (!validateEmail()) {
+      hasError = true;
+    }
+    if (!validateAddress()) {
+      hasError = true;
+    }
+    if (!validateMessage()) {
+      hasError = true;
+    }
+    if (hasError) {
+      return false;
+    } else {
+      alert("Form submitted !!");
+    }
+
+    let obj = {
+      name: nameValue,
+      email: emailValue,
+      address: addressValue,
+      message: messageValue,
+    };
+    request(POST_URL, "POST", JSON.stringify(obj)).then((data) => {
+      alert(JSON.stringify(data));
+      location.reload();
+    });
+  }
 }

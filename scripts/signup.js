@@ -3,6 +3,15 @@ import { request } from "./request.js";
 const signupBtn = document.querySelector("#register_btn");
 signupBtn.addEventListener("click", validateSignUp);
 
+window.onload = () => {
+  if (localStorage.getItem("email")) {
+    document.querySelector(".nav-btn").style.display = "none";
+    document.querySelector(".logout").style.display = "block";
+  } else {
+    document.querySelector("#blog").style.display = "none";
+  }
+};
+
 function validateName() {
   const name = document.getElementById("name");
   const nameValue = document.getElementById("name").value;
@@ -10,7 +19,14 @@ function validateName() {
     name.style.border = "2px solid red";
     name.placeholder = "Please Enter Your Name !";
     return false;
+  } else if (nameValue.trim().indexOf(" ") === -1) {
+    errorName.style.color = "red";
+    name.style.border = "2px solid red";
+    errorName.innerHTML =
+      "You Must Enter Your Full Name e.g. Bishesh Shrestha !";
+    return false;
   } else {
+    errorName.innerHTML = "";
     name.style.border = "";
     return true;
   }
@@ -39,11 +55,19 @@ function validateEmail() {
 function validatePassword() {
   const password = document.getElementById("password");
   const passwordValue = document.getElementById("password").value;
+  const passRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).{8,}$/;
   if (!passwordValue) {
     password.style.border = "2px solid red";
     password.placeholder = "Please Enter Your Password !";
     return false;
+  } else if (!passRegex.test(passwordValue)) {
+    password.style.border = "2px solid red";
+    errorPassword.innerHTML =
+      "Password must include at least 8 characters, an uppercase, a lowercase, a number, & a special character!";
+    errorPassword.style.color = "red";
   } else {
+    errorPassword.innerHTML = "";
     password.style.border = "";
     return true;
   }

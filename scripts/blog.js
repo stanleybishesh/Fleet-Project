@@ -1,4 +1,10 @@
+import { serialize } from "./serialize.js";
+import { request } from "./request.js";
+
 const GET_URL = "https://jsonplaceholder.typicode.com/photos";
+
+const logout_btn = document.getElementById("logout_btn");
+logout_btn.addEventListener("click", logout);
 
 window.onload = () => {
   if (localStorage.getItem("email")) {
@@ -18,20 +24,14 @@ function logout() {
   }
 }
 
-fetch(GET_URL, {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((response) => response.json())
+serialize(request(GET_URL, "GET"))
   .then((data) => {
     const markup = data.map((img) => {
       return `
-        <a class="blog" href="${GET_URL}/${img.id}"> 
-          <h3>Album Id: ${img.albumId}<br/>Id: ${img.id}</h3>
-          <img class="round" src="${img.url}">
-          <h2>${img.title}</h2>
+        <a class="blog" href="${GET_URL}/${img.blogId}"> 
+          <h3>Album Id: ${img.albumId}<br/>Id: ${img.blogId}</h3>
+          <img class="round" src="${img.imgURL}">
+          <h2>${img.blogTitle}</h2>
         </a>
       `;
     });

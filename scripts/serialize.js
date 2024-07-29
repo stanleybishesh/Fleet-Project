@@ -1,19 +1,21 @@
 export async function serialize(data) {
+  let d = await data;
   let finalMappedData;
-  if (Array.isArray(data)) {
-    finalMappedData = data.map((datum) => {
+  if (Array.isArray(d)) {
+    finalMappedData = d.map((datum) => {
       let mappedData = {};
-      mappedData["postId"] = datum["id"];
-      mappedData["userId"] = datum["userId"];
+      mappedData["blogId"] = datum["id"];
+      mappedData["albumId"] = datum["albumId"];
       mappedData["blogTitle"] = datum["title"];
-      mappedData["blogDescription"] = datum["body"];
+      mappedData["imgURL"] = datum["url"];
       return mappedData;
     });
   } else {
     finalMappedData = {
-      userId: data.userId,
+      blogId: data.userId,
+      albumId: data.albumId,
       blogTitle: data.title,
-      blogDescription: data.body,
+      imgURL: data.url,
     };
   }
   return finalMappedData;

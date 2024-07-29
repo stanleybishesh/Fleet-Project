@@ -4,18 +4,29 @@ const loginBtn = document.querySelector("#login__btn");
 const GET_URL = "https://jsonplaceholder.typicode.com/users";
 loginBtn.addEventListener("click", validateLogin);
 
+window.onload = () => {
+  if (localStorage.getItem("email")) {
+    document.querySelector(".nav-btn").style.display = "none";
+    document.querySelector(".logout").style.display = "block";
+  } else {
+    document.querySelector("#blog").style.display = "none";
+  }
+};
+
 function validateEmail() {
   const email = document.getElementById("email");
   const emailValue = document.getElementById("email").value;
-  const emailRegex = "/^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/";
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const errorEmail = document.getElementById("errorEmail");
   if (!emailValue) {
     email.placeholder = "Please Enter Your Email Address !";
     email.style.border = "2px solid red";
     return false;
-    // } else if (email=="22") {
-    //   errorEmail.textContent = "Email is invalid!";
-    //   return false;
+  } else if (!emailRegex.test(emailValue)) {
+    email.style.border = "2px solid red";
+    errorEmail.textContent = "Enter valid email format";
+    errorEmail.style.color = "red";
+    return false;
   } else {
     email.style.border = "";
     errorEmail.textContent = "";
