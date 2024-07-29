@@ -73,7 +73,7 @@ function validateLogin(event) {
       if (authorizedUser) {
         alert("Login Successful");
         localStorage.setItem("email", authorizedUser.email);
-        location.href = "../fleet.html";
+        location.href = "../index.html";
       } else {
         alert("Unauthorized User !!");
       }
