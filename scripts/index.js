@@ -2,7 +2,8 @@ import { request } from "./request.js";
 
 const submitBtn = document.querySelector("#submit_btn");
 const logout_btn = document.querySelector("#logout_btn");
-const POST_URL = "https://jsonplaceholder.typicode.com/comments";
+// const POST_URL = "https://jsonplaceholder.typicode.com/comments";
+const POST_URL = "http://localhost:3000/contacts/";
 logout_btn.addEventListener("click", logout);
 submitBtn.addEventListener("click", formHandler);
 

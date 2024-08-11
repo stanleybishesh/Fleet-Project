@@ -1,5 +1,7 @@
 import { request } from "./request.js";
 
+const POST_URL = "http://localhost:3000/users";
+
 const signupBtn = document.querySelector("#register_btn");
 signupBtn.addEventListener("click", validateSignUp);
 
@@ -125,11 +127,7 @@ function validateSignUp(event) {
     cpassword: cpasswordValue,
   };
 
-  request(
-    "https://jsonplaceholder.typicode.com/users",
-    "POST",
-    JSON.stringify(regUser)
-  ).then((data) => {
+  request(POST_URL, "POST", JSON.stringify(regUser)).then((data) => {
     alert(JSON.stringify(data));
     localStorage.setItem("email", emailValue);
     localStorage.setItem("password", passwordValue);

@@ -1,7 +1,7 @@
 import { request } from "./request.js";
 
 const loginBtn = document.querySelector("#login__btn");
-const GET_URL = "https://jsonplaceholder.typicode.com/users";
+const GET_URL = "http://localhost:3000/users/";
 loginBtn.addEventListener("click", validateLogin);
 
 window.onload = () => {
@@ -50,6 +50,7 @@ function validatePassword() {
 
 function validateLogin(event) {
   const emailValue = document.getElementById("email").value;
+  const passwordValue = document.getElementById("password").value;
   event.preventDefault();
   let hasError = false;
   if (!validateEmail()) {
